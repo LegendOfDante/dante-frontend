@@ -1,0 +1,10 @@
+.dashHeroesHeader {
+    width: 100%;
+    height: 380px;
+}
+
+@media (max-width: 600px) and (min-width:200px) {
+    .dashHeroesHeader {
+        height: 200px;
+    }
+}

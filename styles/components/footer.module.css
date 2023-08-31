@@ -1,0 +1,65 @@
+.containerFooter {
+    height: 50vh;
+    width: 100%;
+    background-color: #F5F5F5;
+}
+
+.footerLink {
+    text-decoration: none;
+    color: black;
+    margin-right: 1rem;
+}
+
+.FooterLogo {
+    height: 10rem;
+    width: 10rem;
+}
+
+.FooterIcon {
+    height: 3rem;
+    width: 3rem;
+    aspect-ratio: 50 / 50;
+}
+
+.FooterIconTw {
+    width: 3.7rem;
+    height: 3.7rem;
+}
+
+.footerContainer {
+    background-color: #F5F5F5;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.footerIconTwich {
+    width: 3.7rem;
+    height: 3.7rem;
+}
+
+@media (max-width: 1000px) and (min-width:600px) {
+    .footerContainer {
+        height: 60vh;
+    }
+
+    .footerLink {
+        font-size: .8rem;
+    }
+}
+
+@media (max-width: 600px) and (min-width:200px) {
+    .footerContainer {
+        height: 60vh;
+    }
+
+    .footerIconTwich {
+        width: 3.7rem;
+        height: 3.7rem;
+    }
+
+    .footerLink {
+        font-size: .8rem;
+    }
+}

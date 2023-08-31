@@ -1,0 +1,15 @@
+@media (max-width: 899px) and (min-width:200px) {
+
+    .imgLoreText {
+        height: 380px;
+        width: 264px;
+    }
+}
+
+@media (max-width: 899px) and (min-width:200px) {
+
+    .imgcampanionText {
+        height: 380px;
+        width: 264px;
+    }
+}

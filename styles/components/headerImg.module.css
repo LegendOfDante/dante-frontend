@@ -1,0 +1,10 @@
+.headerImg {
+  background-image: url('../../assets/layout/header1.png');
+}
+
+@media (max-width: 600px) and (min-width:200px) {
+  .headerImg {
+    background-image: url('../../assets/layout/headerMobile.png');
+    background-size: 100% 100%;
+  }
+}

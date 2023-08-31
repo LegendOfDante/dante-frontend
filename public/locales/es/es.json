@@ -1,0 +1,16 @@
+{
+  "navbar": {
+    "game": "Juego",
+    "download": "Descargar",
+    "learnToPlay": "Aprender a Jugar",
+    "cards": "Cartas",
+    "marketplace": "Mercado",
+    "token": "Token",
+    "buyDanteToken": "Comprar Token Dante",
+    "staking": "Staking",
+    "vesting": "Vesting",
+    "docs": "Documentos",
+    "signIn": "Iniciar Sesión",
+    "playNow": "Jugar Ahora"
+  }
+}

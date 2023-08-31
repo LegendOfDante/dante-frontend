@@ -1,0 +1,16 @@
+{
+  "navbar": {
+    "game": "Game",
+    "download": "Download",
+    "learnToPlay": "Learn to Play",
+    "cards": "Cards",
+    "marketplace": "Marketplace",
+    "token": "Token",
+    "buyDanteToken": "Buy Dante Token",
+    "staking": "Staking",
+    "vesting": "Vesting",
+    "docs": "Docs",
+    "signIn": "Sign In",
+    "playNow": "Play Now"
+  }
+}

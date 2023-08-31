@@ -1,0 +1,10 @@
+.cardImg {
+    width: 100%;
+    min-height: 350px;
+}
+
+.cardIcon {
+    position: absolute;
+    right: calc(50% - 20px);
+    top: 1px;
+}
