@@ -1,6 +1,4 @@
-// import {
-//   experimental_extendTheme as extendTheme, responsiveFontSizes
-// } from '@mui/material/styles'
+'use client'
 
 import { createTheme, responsiveFontSizes } from '@mui/material'
 const themeExthend = createTheme({

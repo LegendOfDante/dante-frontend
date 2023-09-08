@@ -1,13 +1,16 @@
-'use client'
-import NavBarLanding from '@/components/Navbar'
-import styles from '@/styles/body.modules.css'
 import theme from '@/styles/themes/theme'
 import { CssBaseline, ThemeProvider } from '@mui/material'
-import Footer from '@/components/Footer'
 
-export default function RootLayout({ children }) {
+// COMPONENTS
+import NavBarLanding from './components/Navbar'
+import Footer from './components/Footer'
+
+// STYLES
+import styles from '@/styles/body.modules.css'
+
+export default function RootLayout({ children, params }) {
   return (
-    <html lang="en">
+    <html lang={params.lang}>
       <body className={styles.body}>
         <ThemeProvider theme={theme} >
           <CssBaseline />

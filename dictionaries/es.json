@@ -1,0 +1,41 @@
+{
+  "navbar": {
+    "game": "JUEGO",
+    "download": "Descargar",
+    "learnToPlay": "Aprender a Jugar",
+    "cards": "Cartas",
+    "marketplace": "MERCADO",
+    "token": "FICHA",
+    "buyDanteToken": "Comprar Token Dante",
+    "staking": "Staking",
+    "vesting": "Vesting",
+    "docs": "DOCUMENTOS",
+    "signIn": "Iniciar Sesión",
+    "playNow": "Jugar Ahora",
+    "buyDante": "Comprar Dante",
+    "team": "Equipo",
+    "whitepaper": "Whitepaper",
+    "contact": "Contacto",
+    "myAccount": "Mi Cuenta"
+  },
+  "landing": {
+    "hellsMaps": "Mapas del Infierno",
+    "areYouReady": "¿Estás Listo?",
+    "description1": "Legend of Dante es un juego con un componente fundamental de rol y fantasía basado en la Divina Comedia de Dante con algunas características del juego Texas Hold'em.",
+    "description2": "En este juego de cartas estratégico, la habilidad define tu éxito, no la suerte. Elige un héroe icónico y combínalo con demonios, deidades, mascotas y runas para ganar el partido.",
+    "description3": "Los jugadores se enfrentan en duelos de ritmo rápido que combinan el lanzamiento de hechizos y habilidades mágicas con el arte del bluffing para engañar a sus oponentes.",
+    "whoWillYouTake": "¿A quién llevarás a la lucha?",
+    "chooseYourHeroes": "Elige Tus Héroes",
+    "meetAllTheHeroes": "Conoce a Todos los Héroes",
+    "uniqueCards": "Hasta 52 Cartas Únicas Que Te Sorprenderán",
+    "fightAgainstYourDemon": "Lucha Contra Tu Demonio",
+    "elements": "Elementos",
+    "water": "Agua",
+    "fire": "Fuego",
+    "earth": "Tierra",
+    "air": "Aire",
+    "upTo100Levels": "Hasta 100 Niveles",
+    "toLevelUpYourHeroes": "Para Subir de Nivel a Tus Héroes",
+    "upgradeYourStats": "Mejora tus Estadísticas, Atributos y Desbloquea Nuevas Funciones Alcanzando los Niveles de Héroe. El jugador podrá dar forma a sus héroes, haciéndolos únicos y preparándolos para competir."
+  }
+}

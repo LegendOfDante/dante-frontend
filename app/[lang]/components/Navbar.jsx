@@ -1,10 +1,12 @@
+'use client'
+
+// DEPENDENCIAS
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import Image from 'next/image'
 import {
   Collapse,
-  List, Drawer, IconButton, Link, Stack,
-  Button, Typography, Toolbar, Box, Divider,
+  List, Drawer, IconButton, Link, Stack, Typography, Toolbar, Box, Divider,
   ListItemText, ListItemButton, ListItem,
   CssBaseline, AppBar
 } from '@mui/material'
@@ -22,21 +24,56 @@ import iconSpain from '@/assets/iconos/iconSpain.svg'
 import iconRedirect from '@/assets/iconos/iconRedirect.svg'
 import myProfile from '@/assets/iconos/tools/myProfile.svg'
 import ModalSignIn from './modals/ModalSignIn'
+import { getDictionary } from '@/getDictionary'
+import { useParams } from 'next/navigation'
 
 const drawerWidth = 240
-const navItems = ['BUY DANTE  ', 'TEAM', 'WHITEPAPER', 'CONTACT']
 
 function NavBarLanding(props) {
+  const [lang, setLang] = React.useState('')
   const { window } = props
   const [mobileOpen, setMobileOpen] = React.useState(false)
   const [open, setOpen] = React.useState(false)
   const [openIdiom, setOpenIdiom] = React.useState(false)
+  const [openGame, setOpenGame] = React.useState(false)
+  const params = useParams()
+  const [changeLocale, setChangeLocale] = React.useState('')
+
+  const handleLang = async () => {
+    const langParams = await getDictionary(params.lang)
+    setLang(langParams)
+  }
+
+  const handleLocale = () => {
+    if (params.lang === 'es') {
+      setChangeLocale('en')
+    } else {
+      setChangeLocale('es')
+    }
+  }
+
+  let subIcon = iconSpain
+  React.useEffect(() => {
+    handleLang()
+    handleLocale()
+  }, [params])
+
+  if (params.lang === 'es') {
+    subIcon = iconEngland
+  }
+  const navItems = [lang?.navbar?.buyDante, lang?.navbar?.team, lang?.navbar?.whitepaper, lang?.navbar?.contact]
 
   const handleClickIdiom = () => {
     setOpenIdiom(!openIdiom)
   }
   const handleClickSub = () => {
     setOpen(!open)
+    setOpenGame(false)
+  }
+
+  const handleClickGame = () => {
+    setOpen(false)
+    setOpenGame(!openGame)
   }
 
   const handleDrawerToggle = () => {
@@ -45,20 +82,45 @@ function NavBarLanding(props) {
 
   const drawer = (
     <Stack width={'100%'} height={'100%'} sx={{ backgroundColor: '#020202' }} >
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding sx={{ color: 'white' }}>
-          <ListItemButton sx={{ pl: 4, display: 'flex', flexDirection: 'column', alignItems: 'start', marginBottom: '16px' }}>
-            <ListItemText primary="Buy Dante token" />
-            <ListItemText primary="Staking" />
-            <ListItemText primary="Vesting" />
+      <ListItemButton onClick={handleClickGame} sx={{ color: 'white' }}>
+        <ListItemText primary={lang?.navbar?.game} />
+        {openGame ? <Image alt='icon' src={expandMore} /> : <Image alt='icon' src={expandMore} />}
+      </ListItemButton>
+
+      <Collapse in={openGame} timeout="auto" unmountOnExit >
+        <List component="div" disablePadding sx={{ color: 'white', minHeight: '200px' }}>
+          <ListItemButton sx={{ pl: 4, display: 'flex', flexDirection: 'column', alignItems: 'start', marginBottom: '3rem' }}>
+            <ListItemText primary={lang?.navbar?.download} />
+            <ListItemText primary={lang?.navbar?.learnToPlay} />
+            <ListItemText primary={lang?.navbar?.cards} />
           </ListItemButton>
         </List>
       </Collapse>
+
+      <Typography ml={'1rem'} >
+        <Link color={'light.light'} mr={2} underline='none' href={'/landing/marketplace'} >{lang?.navbar?.marketplace}</Link>
+      </Typography>
+
       <ListItemButton onClick={handleClickSub} sx={{ color: 'white' }}>
-        <ListItemText primary="DOCS" />
+        <ListItemText primary={lang?.navbar?.token} />
         {open ? <Image alt='icon' src={expandMore} /> : <Image alt='icon' src={expandMore} />}
       </ListItemButton>
+      <Collapse in={open} timeout="auto" unmountOnExit >
+        <List component="div" disablePadding sx={{ color: 'white', minHeight: '200px' }}>
+          <ListItemButton sx={{ pl: 4, display: 'flex', flexDirection: 'column', alignItems: 'start', marginBottom: '16px' }}>
+            <ListItemText primary={lang?.navbar?.buyDanteToken} />
+            <ListItemText primary={lang?.navbar?.staking} />
+            <ListItemText primary={lang?.navbar?.vesting} />
+          </ListItemButton>
+        </List>
+      </Collapse>
+
+      <Typography ml={'1rem'} >
+        <Link color={'light.light'} mr={2} underline='none' href={'/landing/marketplace'} >{lang?.navbar?.docs}</Link>
+      </Typography>
+
       <Divider sx={{ color: 'white', backgroundColor: '#767676' }} />
+
       <List sx={{ height: '95%' }} >
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
@@ -83,34 +145,12 @@ function NavBarLanding(props) {
         </Collapse>
         <Stack direction={'row'} p={3} >
           <Image src={myProfile} />
-          <Typography ml={2} color={'white'} >MY ACCOUNT</Typography>
+          <Typography ml={2} color={'white'} >{lang?.navbar?.myAccount}</Typography>
         </Stack>
         <Divider />
         <Stack direction={['column', 'row']} justifyContent={'end'} alignItems={'center'} height={'34%'} >
-          <Button
-            sx={{
-              borderRadius: '20px',
-              color: '#F7C55A',
-              fontWeight: '600',
-              width: '90%',
-              marginBottom: '8px',
-              borderColor: '#F7C55A'
-            }}
-            variant='outlined'>
-            SIGN IN
-          </Button>
-          <Button
-            sx={{
-              backgroundColor: 'orange',
-              borderRadius: '20px',
-              color: '#6750A4',
-              fontWeight: '600',
-              width: '90%',
-              marginTop: '8px'
-            }}
-            variant=''>
-            PlAY NOW
-          </Button>
+          <ModalSignIn title={lang?.navbar?.signIn} mnWidth={'99%'} mxwidth={'100%'} />
+          <ButtonColor mt={'1rem'} title={lang?.navbar?.playNow} fontColor={'#6750A4'} mnWidth={'80%'} ml={'.5rem'} />
         </Stack>
       </List >
     </Stack >
@@ -143,60 +183,61 @@ function NavBarLanding(props) {
           </Typography>
 
           <Stack display={['none', 'none', 'none', 'flex', 'flex']} direction={'row'} justifyContent={'center'} alignItems={'center'} width={'50%'}>
-            <SubMenu title={'GAME'} array={[
+            <SubMenu title={lang?.navbar?.game} array={[
               {
-                title: 'Download',
+                title: lang?.navbar?.download,
                 link: '/ss'
               },
               {
-                title: 'Learn to play',
-                link: '/landing/learn-to-play'
+                title: lang?.navbar?.learnToPlay,
+                link: '/landing'
               },
               {
-                title: 'Cards',
+                title: lang?.navbar?.cards,
                 link: '/landing/cards'
               }
             ]} />
 
             <Typography sx={{ marginRight: '4px' }} >
-              <Link color={'light.light'} mr={2} underline='none' href={'/landing/marketplace'} >MARKETPLACE</Link>
+              <Link color={'light.light'} mr={2} underline='none' href={'/landing/marketplace'} >{lang?.navbar?.marketplace}</Link>
             </Typography>
 
-            <SubMenu title={'TOKEN'} list={['Buy dante token', 'Staking', 'Vesting']}
+            <SubMenu title={lang?.navbar?.token} list={['Buy dante token', 'Staking', 'Vesting']}
               array={[
                 {
-                  title: 'buy dante token',
+                  title: lang?.navbar?.buyDanteToken,
                   link: '/ss'
                 },
                 {
-                  title: 'Staking',
+                  title: lang?.navbar?.staking,
                   link: '/landing/token/staking'
                 },
                 {
-                  title: 'Vesting',
+                  title: lang?.navbar?.vesting,
                   link: '/landing/token/vesting'
                 }
               ]}
               subIcon={iconRedirect} />
 
             <Typography sx={{ marginRight: '4px' }} >
-              <Link color={'light.light'} mr={2} underline='none' href={'/landing/marketplace'} >DOCS</Link>
+              <Link color={'light.light'} mr={2} underline='none' href={'/landing/marketplace'} >{lang?.navbar?.docs}</Link>
             </Typography>
           </Stack>
 
           <Box sx={{ display: { xs: 'none', sm: 'none', md: 'none', lg: 'block', xl: 'block', width: '300px' } }}>
 
             <Stack direction={['column', 'row']} width={'100%'} justifyContent={'end'} alignItems={'center'} height={'34%'} >
-              <SubMenu icon={iconEngland} title={'ENGLISH'}
+              <SubMenu icon={iconEngland} title={'ENGLISH'} locale={'es'}
                 array={[
                   {
-                    iconSubMenu: iconSpain,
-                    link: '/ss'
+                    iconSubMenu: subIcon,
+                    link: '/landing',
+                    locale: { changeLocale }
                   }
                 ]}
                 subIcon={iconRedirect} />
-              <ModalSignIn />
-              <ButtonColor title={'Play now'} fontColor={'#6750A4'} mxwidth={'46%'} mnWidth={'45%'} ml={'.5rem'} />
+              <ModalSignIn title={lang?.navbar?.signIn} />
+              <ButtonColor title={lang?.navbar?.playNow} fontColor={'#6750A4'} mnWidth={'fit-content'} ml={'.5rem'} />
             </Stack>
           </Box>
 

@@ -11,9 +11,10 @@ import expandMore from '@/assets/iconos/expandMore.svg'
 import Image from 'next/image'
 import { Link, Typography } from '@mui/material'
 
-export default function SubMenu({ title, array, subIcon, icon }) {
+export default function SubMenu({ title, array, subIcon, icon, handleIdiom, locale }) {
   const [open, setOpen] = React.useState(false)
   const anchorRef = React.useRef(null)
+
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen)
   }
@@ -56,8 +57,10 @@ export default function SubMenu({ title, array, subIcon, icon }) {
           onClick={handleToggle}
         >
           {icon &&
-            <Stack mr={2} >
-              <Image src={icon} />
+            <Stack mr={2} onClick={handleIdiom}>
+              <Link >
+                <Image src={icon} />
+              </Link>
             </Stack>
           }
           <Typography sx={{ marginRight: '1rem' }}>{title}</Typography>
@@ -92,7 +95,9 @@ export default function SubMenu({ title, array, subIcon, icon }) {
                       <MenuItem sx={{ textDecoration: 'none' }} key={i} onClick={handleClose}>
                         {array.iconSubMenu
                           ? <>
-                            <Image src={array.iconSubMenu} />
+                            <Link href={array.link} locale={locale} >
+                              <Image src={array.iconSubMenu} />
+                            </Link>
                           </>
                           : <>
                             <Link color={'light.light'} mr={2} underline='none' href={array.link} >{array.title}</Link>

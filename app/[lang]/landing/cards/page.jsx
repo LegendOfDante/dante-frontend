@@ -8,7 +8,9 @@ import Heroe1 from '@/assets/dashboard/heroe1.svg'
 import Heroe2 from '@/assets/dashboard/heroe2.svg'
 import Heroe3 from '@/assets/dashboard/heroe3.svg'
 import Heroe4 from '@/assets/dashboard/heroe4.svg'
-import SubNavbar from '../../../components/SubNavbar'
+
+// COMPONENTS
+import SubNavbar from '../../components/SubNavbar'
 
 // STYLES
 import styles from '@/styles/landing/heroes.module.css'
@@ -86,7 +88,7 @@ const Heroes = () => {
       <Box width={'100%'} display={'flex'} mt={'3rem'} >
         <Image src={dashHeroHeader} alt='heroes header' className={styles.dashHeroesHeader} />
       </Box>
-      <SubNavbar position={'none'} label={[{ title: 'HEROS' }, { title: 'DEMONS' }, { title: 'PETS' }, { title: 'HEROS' }, { title: 'EQUIPMENT' }, { title: 'SPELLS' }, { title: 'MORE' }]} />
+      <SubNavbar position={'none'} label={[{ title: 'HEROS' }, { title: 'DEMONS' }, { title: 'PETS' }, { title: 'EQUIPMENT' }, { title: 'SPELLS' }, { title: 'MORE' }]} />
       <Box width={['100%']} display={'flex'} justifyContent={'center'} >
         <Grid container spacing={1} mt={'0'} ml={'0'} width={'100%'} >
           <Grid display={'flex'} justifyContent={'center'} columnGap={1} container item spacing={3} mt={4} mb={4} ml={'0'} >

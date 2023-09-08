@@ -23,14 +23,14 @@ const style = {
   justifyContent: 'space-evenly'
 }
 
-export default function ModalSignIn() {
+export default function ModalSignIn({ title, mnWidth, mxwidth }) {
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
   return (
-    <div>
-      <ButtonOutlined handleOpen={handleOpen} title={'Sign in'} mxwidth={'110px'} mnWidth={'100px'} mr={'.5rem'} ml={'1rem'} />
+    <Stack width={'80%'} alignItems={'center'} >
+      <ButtonOutlined handleOpen={handleOpen} title={title} p={'0'} mxwidth={mxwidth || '110px'} mnWidth={mnWidth || '120px'} mr={'.5rem'} ml={'1rem'} />
       <Modal
         keepMounted
         open={open}
@@ -52,6 +52,6 @@ export default function ModalSignIn() {
           </Stack>
         </Box>
       </Modal>
-    </div>
+    </Stack>
   )
 }

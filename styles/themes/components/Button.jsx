@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import { styled } from '@mui/material/styles'
 import Button from '@mui/material/Button'
@@ -34,9 +36,10 @@ function ButtonColor({ title, fontColor, mxwidth, mnWidth, ml, mr, h, img, bgCol
   )
 }
 
-const OutlinedButton = styled(Button)(({ theme, mxwidth, mnWidth, mr, ml, mb, mt, h }) => ({
+const OutlinedButton = styled(Button)(({ theme, mxwidth, mnWidth, mr, ml, mb, mt, h, p }) => ({
   color: theme.palette.primary.main,
   fontWeight: '600',
+  padding: [p || 'auto'],
   marginRight: [mr || '0px'],
   marginTop: [mt || '0px'],
   marginBottom: [mb || '0px'],
@@ -49,9 +52,9 @@ const OutlinedButton = styled(Button)(({ theme, mxwidth, mnWidth, mr, ml, mb, mt
   }
 }))
 
-function ButtonOutlined({ title, mxwidth, mnWidth, mr, ml, handleOpen, img, mb, mt, h }) {
+function ButtonOutlined({ title, mxwidth, mnWidth, mr, ml, handleOpen, img, mb, mt, h, p }) {
   return (
-    <OutlinedButton onClick={handleOpen} mb={mb} h={h} mt={mt} mr={mr} ml={ml} mxwidth={mxwidth} mnWidth={mnWidth} variant="outlined">
+    <OutlinedButton p={p} onClick={handleOpen} mb={mb} h={h} mt={mt} mr={mr} ml={ml} mxwidth={mxwidth} mnWidth={mnWidth} variant="outlined">
       {title}
     </OutlinedButton>
   )

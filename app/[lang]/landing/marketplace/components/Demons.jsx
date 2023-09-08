@@ -1,7 +1,7 @@
 import { Box, Grid } from '@mui/material'
 
 // COMPONENTS
-import CardsLayout from '@/components/marketplace/CardsLayout'
+import CardsLayout from '@/app/[lang]/components/marketplace/CardsLayout'
 
 // ASSETS
 import demons1 from '@/assets/demons/demons1.svg'

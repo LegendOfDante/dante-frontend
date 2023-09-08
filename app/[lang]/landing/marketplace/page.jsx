@@ -1,10 +1,10 @@
 'use client'
 import { useCallback, useState } from 'react'
-import Aside from '@/components/marketplace/Aside'
 import { Stack } from '@mui/material'
 
 // COMPONENTS
-import SubNavbar from '@/components/SubNavbar'
+import SubNavbar from '../../components/SubNavbar'
+import Aside from '../../components/marketplace/Aside'
 import Heros from './components/Heros'
 import Demons from './components/Demons'
 

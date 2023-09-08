@@ -1,6 +1,6 @@
 // DEPENDENCIAS
 import Card from '@mui/material/Card'
-import { Box } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 import Image from 'next/image'
 
 // STYLES
@@ -25,9 +25,11 @@ const CardComponent = ({ img, icon, backgroundColor }) => {
     >
       <div className="MuiAspectRatio-root">
         <div className="MuiAspectRatio-content">
-          <Card sx={{ maxWidth: [250, 250, 300, 300], maxHeight: ['375px'], backgroundColor: { backgroundColor }, boxShadow: 'none' }}>
-            <Image alt='icon' src={icon} className={styles.cardIcon} />
-            <Image alt='image' className={styles.cardImg} src={img} />
+          <Card sx={{ maxWidth: [250, 250, 300, 300], minHeight: '390px', maxHeight: ['400px'], backgroundColor: { backgroundColor }, boxShadow: 'none' }}>
+            <Stack position={'relative'} height={'390px'} justifyContent={'end'} >
+              <Image alt='icon' src={icon} className={styles.cardIcon} />
+              <Image alt='image' className={styles.cardImg} src={img} />
+            </Stack>
           </Card>
         </div>
       </div>

@@ -1,6 +1,7 @@
 .cardImg {
     width: 100%;
     min-height: 350px;
+    max-height: 380px;
 }
 
 .cardIcon {

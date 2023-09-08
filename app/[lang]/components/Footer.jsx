@@ -4,13 +4,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 // STYLES
-import styles from '../styles/components/footer.module.css'
+import styles from '@/styles/components/footer.module.css'
 // ASSETS
-import logoFooter from '../assets/logos/logoFooter.svg'
-import iconTw from '../assets/iconos/iconTw.svg'
-import iconFb from '../assets/iconos/iconFb.svg'
-import iconInst from '../assets/iconos/iconInst.svg'
-import iconTwich from '../assets/iconos/iconTwich.svg'
+import logoFooter from '@/assets/logos/logoFooter.svg'
+import iconTw from '@/assets/iconos/iconTw.svg'
+import iconFb from '@/assets/iconos/iconFb.svg'
+import iconInst from '@/assets/iconos/iconInst.svg'
+import iconTwich from '@/assets/iconos/iconTwich.svg'
 
 const Footer = () => (
   <>
